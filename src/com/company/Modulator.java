@@ -1,10 +1,13 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 
 public class Modulator {
 
-    private ArrayList<Point> constellation;
+    private List<Point> constellation;
     private Point currentSignal;
 
     private double E = 1;
@@ -12,15 +15,15 @@ public class Modulator {
     public Modulator() {
         double cos45 = Math.sqrt(2)/2;
 
-        constellation = new ArrayList<>();
-        constellation.add(new Point(-cos45, cos45, 0));
-        constellation.add(new Point(cos45, -cos45, 1));
-        constellation.add(new Point(-cos45, -cos45, 2));
-        constellation.add(new Point(cos45, cos45, 3));
-        constellation.add(new Point(0, -1, 4));
-        constellation.add(new Point(0, 1, 5));
-        constellation.add(new Point(-1, 0, 6));
-        constellation.add(new Point(1, 0, 7));
+        constellation = new ArrayList<>(List.of(
+                new Point(-cos45, cos45, 0),
+                new Point(cos45, -cos45, 1),
+                new Point(-cos45, -cos45, 2),
+                new Point(cos45, cos45, 3),
+                new Point(0, -1, 4),
+                new Point(0, 1, 5),
+                new Point(-1, 0, 6),
+                new Point(1, 0, 7)));
     }
 
     public Point modulate(int data) {
